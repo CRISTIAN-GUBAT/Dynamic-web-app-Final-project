@@ -1,16 +1,13 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['via.placeholder.com'],
   },
-  webpack: (config: { resolve: { alias: any } }) => {
+  webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      'mapbox-gl': 'maplibre-gl'
+      'mapbox-gl': 'mapbox-gl/dist/mapbox-gl' // Proper Mapbox path
     }
     return config
   }
 }
-
-module.exports = nextConfig
